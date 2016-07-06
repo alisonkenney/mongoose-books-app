@@ -55,9 +55,9 @@ app.get('/api/books', function (req, res) {
 
 // get one book
 app.get('/api/books/:id', function (req, res) {
-  db.Book.find({_:id = req.params.id}, function(err, books){
+  db.Book.findById(req.params.id, function(err, book){
     if (err) { return console.log("index error: " + err);}
-    res.json(books);
+    res.json(book);
   });
   //original:
   //console.log('books show', req.params);
@@ -69,13 +69,16 @@ app.get('/api/books/:id', function (req, res) {
   //}
 });
 
+
+
 // create new book
 app.post('/api/books', function (req, res) {
+  //original:
   // create new book with form data (`req.body`)
-  console.log('books create', req.body);
-  var newBook = req.body;
-  books.push(newBook);
-  res.json(newBook);
+  //console.log('books create', req.body);
+  //var newBook = req.body;
+  //books.push(newBook);
+  //res.json(newBook);
 });
 
 // update book
